@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+h1{
+    margin-left: 35%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+    {% if user.is_authenticated %}
+
+<h1 >Here You Can See Your All blogs</h1>
+
+
+<table>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+    </tr>
+    {% for blogs in blogs %}
+    <tr>
+        <td>{{ blogs.title }}</td>
+        <td>{{ blogs.description }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+
+
+
+
+    {% endif %}
+
+ 
+<h1 >You have not logged in ! Kindly login</h1>
+<a href="{% url 'login' %}">Login</a>
+
+  
+
+</body>
+</html>
+

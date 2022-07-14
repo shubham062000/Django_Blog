@@ -1,0 +1,10 @@
+<h2>Create blog</h2>
+
+<form method="post" target="home.html">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Register">
+
+    <a href="{% url 'blogs' %}"> Click here to see all blogs</a>
+
+</form>
