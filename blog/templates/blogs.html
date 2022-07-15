@@ -36,18 +36,21 @@ h2.a{
     <tr>
       <th>Title</th>
       <th>Description</th>
+      {% if user.is_authenticated %}
       <th>Actions</th>
+      {% endif %}
     </tr>
     {% for blogs in blogs %}
     <tr>
         <td>{{ blogs.title }}</td>
         <td>{{ blogs.description }}</td>
+        {% if user.is_authenticated %}
         <td>
           <button type="button" class="btn btn-outline-warning"><a href="{% url 'update' blogs.id %}">Update</a></button> 
           <button type="button" class="btn btn-outline-danger"><a href="{% url 'delete' blogs.id %}">Delete</a></button>
               
         </td>
-        
+        {% endif %}
       </tr>
     {% endfor %}
 
