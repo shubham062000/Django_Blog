@@ -19,11 +19,14 @@ td, th {
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+h2.a{
+  color: powderblue;
+}
 </style>
 </head>
 <body>
     {% if user.is_authenticated %}
-
+<h2><a href="{% url 'home' %}">Home</a></h2>
 <h1 >Here You Can See Your All blogs</h1>
 
 
@@ -31,23 +34,26 @@ tr:nth-child(even) {
     <tr>
       <th>Title</th>
       <th>Description</th>
+      <th>Actions</th>
     </tr>
     {% for blogs in blogs %}
     <tr>
         <td>{{ blogs.title }}</td>
         <td>{{ blogs.description }}</td>
+        
+        <td> <a href="{% url 'delete' %}">update</a></td>
       </tr>
     {% endfor %}
     </table>
+    {% else %}
 
-
-
+    <h1 >You have not logged in ! Kindly login</h1>
+    <a href="{% url 'login' %}">Login</a>
+    
 
     {% endif %}
 
  
-<h1 >You have not logged in ! Kindly login</h1>
-<a href="{% url 'login' %}">Login</a>
 
   
 
