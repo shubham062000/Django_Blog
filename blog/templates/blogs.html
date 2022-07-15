@@ -40,8 +40,10 @@ h2.a{
     <tr>
         <td>{{ blogs.title }}</td>
         <td>{{ blogs.description }}</td>
+        <td> <a href="{% url 'update' blogs.id %}">Update</a>
+              <a href="{% url 'delete' blogs.id %}">Delete</a>
+        </td>
         
-        <td> <a href="{% url 'delete' %}">update</a></td>
       </tr>
     {% endfor %}
     </table>
